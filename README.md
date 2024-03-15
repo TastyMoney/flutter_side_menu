@@ -1,5 +1,5 @@
 <div align="center"> 
-<h2 align="center">Flutter Side Menu</h2> 
+<h2 align="center">Flutter Side Menu Forked</h2> 
 <img height="160" align="center"  alt="logo" src="https://raw.githubusercontent.com/resfandiari/flutter_side_menu/main/assets/logo.png"/>
 </br>
 <a href="https://github.com/resfandiari/flutter_side_menu/blob/main/LICENSE">  
