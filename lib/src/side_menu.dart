@@ -140,8 +140,12 @@ class _SideMenuState extends State<SideMenu> with SideMenuWidthMixin {
       widget.controller?.open = _openMenu;
       widget.controller?.close = _closeMenu;
       widget.controller?.toggle = _toggleMenu;
+      widget.controller?.isCollapsed = _isCollasped;
     }
     super.initState();
+  }
+  bool _isCollasped() {
+    return  _currentWidth == widget.minWidth;
   }
 
   void _openMenu() {
