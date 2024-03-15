@@ -230,7 +230,7 @@ class _SideMenuState extends State<SideMenu> with SideMenuWidthMixin {
       constraints: BoxConstraints(
         minHeight: size.height,
         maxHeight: size.height,
-        minWidth: widget.minWidth,
+        minWidth: widget.minWidth+10,
         maxWidth: widget.maxWidth,
       ),
       child: SideMenuBody(
