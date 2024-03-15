@@ -22,20 +22,45 @@ class SideMenuItemTile extends StatefulWidget {
 class _SideMenuItemTileState extends State<SideMenuItemTile> {
   @override
   Widget build(BuildContext context) {
+
     return Container(
       height: widget.data.itemHeight,
       margin: widget.data.margin,
-      decoration: ShapeDecoration(
+
+
+      decoration: widget.data.isSelected?
+      BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              widget.data.highlightSelectedColor!,
+              widget.data.highlightSelectedColor2!,
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+          borderRadius:  BorderRadius.all(
+            Radius.circular( widget.data.radius!),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: widget.data.isSelected
+                  ? widget.data.highlightSelectedColor ??
+                  Theme.of(context).colorScheme.secondaryContainer
+                  : Colors.pink.withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 4,
+              offset: Offset(0, 1),
+            )
+          ]
+      ):
+
+      ShapeDecoration(
         shape: shape(context),
-        color: widget.data.isSelected
-            ? widget.data.highlightSelectedColor ??
-                Theme.of(context).colorScheme.secondaryContainer
-            : null,
+        color:  Colors.white60,
       ),
       child: Material(
         color: Colors.transparent,
-        clipBehavior: Clip.hardEdge,
-        shape: shape(context),
+
         child: InkWell(
           onTap: widget.data.onTap,
           hoverColor: widget.data.hoverColor,
@@ -49,8 +74,8 @@ class _SideMenuItemTileState extends State<SideMenuItemTile> {
     return widget.data.borderRadius != null
         ? RoundedRectangleBorder(borderRadius: widget.data.borderRadius!)
         : Theme.of(context).useMaterial3
-            ? const StadiumBorder()
-            : RoundedRectangleBorder(borderRadius: BorderRadius.circular(4));
+        ? const StadiumBorder()
+        : RoundedRectangleBorder(borderRadius: BorderRadius.circular(4));
   }
 
   Color getSelectedColor() {
@@ -139,15 +164,15 @@ class _SideMenuItemTileState extends State<SideMenuItemTile> {
   Widget _icon() {
     return widget.data.icon != null
         ? SizedBox(
-            width: widget.minWidth - widget.data.margin.horizontal,
-            height: double.maxFinite,
-            child: IconTheme(
-              data: Theme.of(context)
-                  .iconTheme
-                  .copyWith(color: getSelectedColor()),
-              child: getSelectedIcon()!,
-            ),
-          )
+      width: widget.minWidth - widget.data.margin.horizontal,
+      height: double.maxFinite,
+      child: IconTheme(
+        data: Theme.of(context)
+            .iconTheme
+            .copyWith(color: getSelectedColor()),
+        child: getSelectedIcon()!,
+      ),
+    )
         : const SizedBox.shrink();
   }
 

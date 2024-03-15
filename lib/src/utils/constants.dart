@@ -9,7 +9,8 @@ class Constants {
   static const double itemHeight = 40.0;
   static const double itemSelectedLineHeight = 20.0;
   static const double itemSelectedLineWidth = 4.0;
-
+  static const Color HighLightColor1 = Color.fromRGBO(255, 143, 158, 1);
+  static const Color HighLightColor2 =  Color.fromRGBO(255, 188, 143, 1);
   /// Durations
   static const Duration duration = Duration(milliseconds: 200);
 

@@ -32,6 +32,7 @@ class SideMenu extends StatefulWidget {
     this.resizerData,
     this.resizerToggleData,
     this.backgroundColor,
+    this.onSelectColor  = Colors.pink
   })  : assert(minWidth >= 0.0),
         assert(maxWidth > 0.0),
         assert(priority == SideMenuPriority.sizer ? hasResizer : true),
@@ -126,6 +127,8 @@ class SideMenu extends StatefulWidget {
   /// The [backgroundColor] it's used to determine the side menu background
   /// color.
   final Color? backgroundColor;
+
+  final Color? onSelectColor;
 
   @override
   State<SideMenu> createState() => _SideMenuState();

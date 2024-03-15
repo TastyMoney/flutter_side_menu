@@ -29,9 +29,10 @@ class _MyAppState extends State<MyApp> {
           children: [
             SideMenu(
               controller: _controller,
-              backgroundColor: Colors.blueGrey,
+              backgroundColor: Colors.white60,
               mode: SideMenuMode.open,
               builder: (data) {
+
                 return SideMenuData(
                   header: const Text('Header'),
                   items: [
@@ -41,32 +42,30 @@ class _MyAppState extends State<MyApp> {
                     SideMenuItemDataTile(
                       isSelected: _currentIndex == 0,
                       onTap: () => setState(() => _currentIndex = 0),
-                      title: 'Item 1',
-                      hoverColor: Colors.blue,
-                      titleStyle: const TextStyle(color: Colors.white),
+                      title: '中文 1',
+                      highlightSelectedColor :Colors.green,
+                      hasSelectedLine: false,
+                      highlightSelectedColor2 :Colors.blue,
+                      radius:25.0,
                       icon: const Icon(Icons.home_outlined),
                       selectedIcon: const Icon(Icons.home),
-                      badgeContent: const Text(
-                        '23',
-                        style: TextStyle(
-                          fontSize: 8,
-                          color: Colors.white,
-                        ),
-                      ),
+
                     ),
                     SideMenuItemDataTile(
                       isSelected: _currentIndex == 1,
                       onTap: () => setState(() => _currentIndex = 1),
                       title: 'Item 2',
+
                       selectedTitleStyle:
                           const TextStyle(fontWeight: FontWeight.w700,color: Colors.yellow),
                       icon: const Icon(Icons.table_bar_outlined),
                       selectedIcon: const Icon(Icons.table_bar),
+                      hasSelectedLine: false,
                       titleStyle: const TextStyle(color: Colors.deepPurpleAccent),
                     ),
-                    const SideMenuItemDataTitle(
-                      title: 'Account',
-                      textAlign: TextAlign.center,
+                    const SideMenuItemDataDivider(
+                        divider: Divider()
+
                     ),
                     SideMenuItemDataTile(
                       isSelected: _currentIndex == 2,

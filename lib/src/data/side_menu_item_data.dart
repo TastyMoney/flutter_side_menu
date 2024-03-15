@@ -10,6 +10,7 @@ class SideMenuItemDataTile extends SideMenuItemData {
   const SideMenuItemDataTile({
     required this.isSelected,
     required this.onTap,
+    this.isGradient =false,
     this.icon,
     this.title,
     this.titleStyle,
@@ -25,7 +26,9 @@ class SideMenuItemDataTile extends SideMenuItemData {
     this.margin = Constants.itemMargin,
     this.borderRadius,
     this.selectedIcon,
-    this.highlightSelectedColor,
+    this.radius=10.0,
+    this.highlightSelectedColor = Constants.HighLightColor1,
+    this.highlightSelectedColor2 = Constants.HighLightColor2,
     this.hoverColor,
     this.badgePosition,
     this.badgeStyle,
@@ -33,7 +36,7 @@ class SideMenuItemDataTile extends SideMenuItemData {
         assert(icon != null || title != null),
         super();
 
-  final bool isSelected, hasSelectedLine;
+  final bool isSelected, hasSelectedLine, isGradient;
   final void Function() onTap;
   final Size selectedLineSize;
   final String? title;
@@ -46,10 +49,12 @@ class SideMenuItemDataTile extends SideMenuItemData {
   final Widget? icon;
   final Widget? selectedIcon;
   final double itemHeight;
+  final double? radius;
   final EdgeInsetsDirectional margin;
   final BorderRadiusGeometry? borderRadius;
   final Color? hoverColor,
-      highlightSelectedColor;
+      highlightSelectedColor,
+      highlightSelectedColor2;
 }
 
 class SideMenuItemDataTitle extends SideMenuItemData {
